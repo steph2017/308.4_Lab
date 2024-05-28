@@ -88,3 +88,51 @@ for (j = 0; j < parsedWords.length; j++) {  // Then within each key, add in the 
     }
     cvObjectArr.push(cvObjectRow);
 }
+
+/*
+
+Part 4: Sorting and Manipulating Data
+It is important to know how to work with data in this format, an array of objects, as it is one of the most commonly used data formats in JavaScript.
+Using array methods, accomplish the following tasks, in order upon the result of Part 3:
+
+Remove the last element from the sorted array.
+
+Insert the following object at index 1:
+{ id: "48", name: "Barry", occupation: "Runner", age: "25" }
+
+Add the following object to the end of the array:
+{ id: "7", name: "Bilbo", occupation: "None", age: "111" }
+
+So far, the results should look like this:
+[{ id: "42", name: "Bruce", occupation: "Knight", age: "41" }, { id: "48", name: "Barry", occupation: "Runner", age: "25" }, { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" }, { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" }, { id: "7", name: "Bilbo", occupation: "None", age: "111" }]
+Finally, use the values of each object within the array and the array’s length property to calculate the average age of the group. This calculation should be accomplished using a loop.
+*/
+
+/*
+Data source for pt. 4
+[["ID", "Name", "Occupation", "Age"], ["42", "Bruce", "Knight", "41"], ["57", "Bob", "Fry Cook", "19"], ["63", "Blaine", "Quiz Master", "58"], ["98", "Bill", "Doctor’s Assistant", "26"]]
+*/
+
+/*
+Part 5: Full Circle
+As a final task, transform the final set of data back into CSV format.
+There are a number of ways to do this; be creative!
+Once complete, be sure to submit your work according to the submission instructions at the beginning of this document.
+*/
+
+// i could first create an array from the keys. 
+// Then do a nested loop: inner loop will go thru each key in a given object by string match
+//  and push each key value to a 2d array. Outer loop will cycle through each object.
+// result should be a 2d array and a 1d array for the header.
+// Then shift (or unshift idr which one) to add header array as first elemebt in the 2d array.
+// Then for each element in the 2d array, join with comma as the delimiteer (if needed)
+
+
+const headerArr = Object.keys(cvObjectArr[0]); // create header array - going to join after fact
+let revArr = [];
+for (k = 0; k < cvObjectArr.length; k++) {
+    revArr[k] = Object.values(cvObjectArr[k]);
+}
+revArr.unshift(headerArr);
+let newCV = revArr.join(", "); // Turning into string. Looks good!
+
