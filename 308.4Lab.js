@@ -69,23 +69,22 @@ Since the heading for each column will be stored in the object keys, you do not 
 // So i will need to loop through this, adding keys as i go.
 
 
-// const cvObjectArr = [];
-// const cvObjectRow = {};
+const cvObjectArr = [];
 
-// //First I'll remove the header array from the 2d array:
-// const objectKeys = parsedWords.splice(0, 1);
+//First I'll remove the header array from the 2d array:
+const objectKeys = parsedWords.splice(0, 1);
 
-// // Then ill go ahead and make it lowercase now:
-// // const objectKeyslc = objectKeys.map((key) => key.toLowerCase());
-// let i; //debug visibility
-// let j;
-// // Then I'll iterate thru numOfCols to create each key:
-// for (i = 0; i < numOfCols; i++) {
-//     cvObjectRow[objectKeys[i]];
-// }
-// for (j = 0; j < parsedWords.length; j++) {  // Then within each key, add in the corresponding values for each row.
-//     for (i = 0; i < numOfCols; i++) {
-//         cvObjectRow[objectKeys[i]] = parsedWords[j][i];
-//     }
-//     cvObjectArr.push(cvObjectRow);
-// }
+// Then ill go ahead and make it lowercase now:
+const objectKeyslc = objectKeys[0].map((key) => key.toLowerCase());
+
+// Then I'll iterate thru numOfCols to create each key:
+
+for (j = 0; j < parsedWords.length; j++) {  // Then within each key, add in the corresponding values for each row.
+    const cvObjectRow = {};
+    for (i = 0; i < numOfCols; i++) {
+
+
+        cvObjectRow[objectKeyslc[i]] = parsedWords[j][i];
+    }
+    cvObjectArr.push(cvObjectRow);
+}
