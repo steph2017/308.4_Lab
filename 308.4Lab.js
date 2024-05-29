@@ -136,3 +136,18 @@ for (k = 0; k < cvObjectArr.length; k++) {
 revArr.unshift(headerArr);
 let newCV = revArr.join(", "); // Turning into string. Looks good!
 
+// Alternate for adding newlines.
+
+const headerArr = Object.keys(cvObjectArr[0]); // create header array - going to join now.
+let newHeader = headerArr.join(",");
+newHeader += "\n"; //Add the new line;
+
+let revArr = [];
+for (k = 0; k < cvObjectArr.length; k++) {
+    revArr[k] = Object.values(cvObjectArr[k]);
+    revArr[k] = revArr[k].join(",");
+    revArr[k] += "\n";
+}
+revArr.unshift(headerArr);
+let newCV = revArr.join(""); // Turning into string; no new delimiters needed. Looks good except the new line character does not show up after header.
+
