@@ -113,6 +113,26 @@ Data source for pt. 4
 [["ID", "Name", "Occupation", "Age"], ["42", "Bruce", "Knight", "41"], ["57", "Bob", "Fry Cook", "19"], ["63", "Blaine", "Quiz Master", "58"], ["98", "Bill", "Doctor’s Assistant", "26"]]
 */
 
+let pt4Arr = [{ id: "42", name: "Bruce", occupation: "Knight", age: "41" }, { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" }, { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" }, { id: "98", name: "Bill", occupation: "Doctor’s Assistant", age: "26" }];
+
+// First sort array by looking at id:
+
+pt4Arr.sort((a, b) => a.id - b.id);
+
+// next use pop to remove last element:
+
+pt4Arr.pop();
+
+// next use, splice to add the code at specfiic place:
+
+pt4Arr.splice(1, 0, { id: "48", name: "Barry", occupation: "Runner", age: "25" });
+
+// use push to add something to the end:
+
+pt4Arr.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" });
+
+console.log(pt4Arr); //result check, looks good!
+
 /*
 Part 5: Full Circle
 As a final task, transform the final set of data back into CSV format.
@@ -128,13 +148,13 @@ Once complete, be sure to submit your work according to the submission instructi
 // Then for each element in the 2d array, join with comma as the delimiteer (if needed)
 
 
-const headerArr = Object.keys(cvObjectArr[0]); // create header array - going to join after fact
-let revArr = [];
-for (k = 0; k < cvObjectArr.length; k++) {
-    revArr[k] = Object.values(cvObjectArr[k]);
-}
-revArr.unshift(headerArr);
-let newCV = revArr.join(", "); // Turning into string. Looks good!
+// const headerArr = Object.keys(cvObjectArr[0]); // create header array - going to join after fact
+// let revArr = [];
+// for (k = 0; k < cvObjectArr.length; k++) {
+//     revArr[k] = Object.values(cvObjectArr[k]);
+// }
+// revArr.unshift(headerArr);
+// let newCV = revArr.join(", "); // Turning into string. Looks good!
 
 // Alternate for adding newlines.
 
